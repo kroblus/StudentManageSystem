@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>CourseTeacherService.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #c792ea;}
+.s1 { color: #d6deeb;}
+.s2 { color: #d6deeb;}
+.s3 { color: #b0bde2; font-style: italic;}
+.s4 { color: #7fdbca; font-weight: bold; font-style: italic;}
+.s5 { color: #5f7e97;}
+.s6 { color: #ecc48d;}
+.s7 { color: #f78c6c;}
+.ls0 { height: 1px; border-width: 0; color: #084d81; background-color:#084d81}
+</style>
+</head>
+<body bgcolor="#011627">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CourseTeacherService.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s0">.</span><span class="s1">auggie</span><span class="s0">.</span><span class="s1">student_server</span><span class="s0">.</span><span class="s1">service</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">com</span><span class="s0">.</span><span class="s1">auggie</span><span class="s0">.</span><span class="s1">student_server</span><span class="s0">.</span><span class="s1">entity</span><span class="s0">.</span><span class="s1">Course</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s0">.</span><span class="s1">auggie</span><span class="s0">.</span><span class="s1">student_server</span><span class="s0">.</span><span class="s1">entity</span><span class="s0">.</span><span class="s1">CourseTeacher</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s0">.</span><span class="s1">auggie</span><span class="s0">.</span><span class="s1">student_server</span><span class="s0">.</span><span class="s1">entity</span><span class="s0">.</span><span class="s1">CourseTeacherInfo</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s0">.</span><span class="s1">auggie</span><span class="s0">.</span><span class="s1">student_server</span><span class="s0">.</span><span class="s1">mapper</span><span class="s0">.</span><span class="s1">CourseTeacherMapper</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s0">.</span><span class="s1">springframework</span><span class="s0">.</span><span class="s1">beans</span><span class="s0">.</span><span class="s1">factory</span><span class="s0">.</span><span class="s1">annotation</span><span class="s0">.</span><span class="s1">Autowired</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s0">.</span><span class="s1">springframework</span><span class="s0">.</span><span class="s1">stereotype</span><span class="s0">.</span><span class="s1">Service</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s0">.</span><span class="s1">util</span><span class="s0">.</span><span class="s1">List</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s0">.</span><span class="s1">util</span><span class="s0">.</span><span class="s1">Map</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* </span><span class="s4">@Auther: </span><span class="s3">auggie</span>
+ <span class="s3">* </span><span class="s4">@Date: </span><span class="s3">2022/2/10 16:50</span>
+ <span class="s3">* </span><span class="s4">@Description: </span><span class="s3">CourseTeacherService</span>
+ <span class="s3">* </span><span class="s4">@Version </span><span class="s3">1.0.0</span>
+ <span class="s3">*/</span>
+
+<span class="s1">@Service</span>
+<span class="s0">public class </span><span class="s1">CourseTeacherService </span><span class="s2">{</span>
+    <span class="s1">@Autowired</span>
+    <span class="s0">private </span><span class="s1">CourseTeacherMapper courseTeacherMapper</span><span class="s2">;</span>
+<hr class="ls0">    <span class="s0">public boolean </span><span class="s1">insertCourseTeacher</span><span class="s2">(</span><span class="s1">Integer cid</span><span class="s5">, </span><span class="s1">Integer tid</span><span class="s5">, </span><span class="s1">String term</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">insertCourseTeacher</span><span class="s2">(</span><span class="s1">cid</span><span class="s5">, </span><span class="s1">tid</span><span class="s5">, </span><span class="s1">term</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<hr class="ls0">    <span class="s0">public </span><span class="s1">List</span><span class="s0">&lt;</span><span class="s1">Course</span><span class="s0">&gt; </span><span class="s1">findMyCourse</span><span class="s2">(</span><span class="s1">Integer tid</span><span class="s5">, </span><span class="s1">String term</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">findMyCourse</span><span class="s2">(</span><span class="s1">tid</span><span class="s5">, </span><span class="s1">term</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<hr class="ls0">    <span class="s0">public </span><span class="s1">List</span><span class="s0">&lt;</span><span class="s1">CourseTeacherInfo</span><span class="s0">&gt; </span><span class="s1">findCourseTeacherInfo</span><span class="s2">(</span><span class="s1">Map</span><span class="s0">&lt;</span><span class="s1">String</span><span class="s5">, </span><span class="s1">String</span><span class="s0">&gt; </span><span class="s1">map</span><span class="s2">) {</span>
+        <span class="s1">Integer tid </span><span class="s0">= null</span><span class="s5">, </span><span class="s1">cid </span><span class="s0">= null</span><span class="s2">;</span>
+        <span class="s1">Integer tFuzzy </span><span class="s0">= null</span><span class="s5">, </span><span class="s1">cFuzzy </span><span class="s0">= null</span><span class="s2">;</span>
+        <span class="s1">String tname </span><span class="s0">= null</span><span class="s5">, </span><span class="s1">cname </span><span class="s0">= null</span><span class="s2">;</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;tid&quot;</span><span class="s2">)) {</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">tid </span><span class="s0">= </span><span class="s1">Integer</span><span class="s0">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;tid&quot;</span><span class="s2">));</span>
+            <span class="s2">}</span>
+            <span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;cid&quot;</span><span class="s2">)) {</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">cid </span><span class="s0">= </span><span class="s1">Integer</span><span class="s0">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;cid&quot;</span><span class="s2">));</span>
+            <span class="s2">}</span>
+            <span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;tname&quot;</span><span class="s2">)) {</span>
+            <span class="s1">tname </span><span class="s0">= </span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;tname&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;cname&quot;</span><span class="s2">)) {</span>
+            <span class="s1">cname </span><span class="s0">= </span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;cname&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;tFuzzy&quot;</span><span class="s2">)) {</span>
+            <span class="s1">tFuzzy </span><span class="s0">= </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;tFuzzy&quot;</span><span class="s2">)</span><span class="s0">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;true&quot;</span><span class="s2">)) </span><span class="s0">? </span><span class="s7">1 </span><span class="s0">: </span><span class="s7">0</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;cFuzzy&quot;</span><span class="s2">)) {</span>
+            <span class="s1">cFuzzy </span><span class="s0">= </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;cFuzzy&quot;</span><span class="s2">)</span><span class="s0">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;true&quot;</span><span class="s2">)) </span><span class="s0">? </span><span class="s7">1 </span><span class="s0">: </span><span class="s7">0</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s0">.</span><span class="s1">out</span><span class="s0">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;ct 模糊查询&quot; </span><span class="s0">+ </span><span class="s1">map</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s0">.</span><span class="s1">out</span><span class="s0">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">findCourseTeacherInfo</span><span class="s2">(</span><span class="s1">tid</span><span class="s5">, </span><span class="s1">tname</span><span class="s5">, </span><span class="s1">tFuzzy</span><span class="s5">, </span><span class="s1">cid</span><span class="s5">, </span><span class="s1">cname</span><span class="s5">, </span><span class="s1">cFuzzy</span><span class="s2">));</span>
+        <span class="s0">return </span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">findCourseTeacherInfo</span><span class="s2">(</span><span class="s1">tid</span><span class="s5">, </span><span class="s1">tname</span><span class="s5">, </span><span class="s1">tFuzzy</span><span class="s5">, </span><span class="s1">cid</span><span class="s5">, </span><span class="s1">cname</span><span class="s5">, </span><span class="s1">cFuzzy</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<hr class="ls0">    <span class="s0">public </span><span class="s1">List</span><span class="s0">&lt;</span><span class="s1">CourseTeacher</span><span class="s0">&gt; </span><span class="s1">findBySearch</span><span class="s2">(</span><span class="s1">Integer cid</span><span class="s5">, </span><span class="s1">Integer tid</span><span class="s5">, </span><span class="s1">String term</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">findBySearch</span><span class="s2">(</span><span class="s1">cid</span><span class="s5">, </span><span class="s1">tid</span><span class="s5">, </span><span class="s1">term</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<hr class="ls0">    <span class="s0">public </span><span class="s1">List</span><span class="s0">&lt;</span><span class="s1">CourseTeacher</span><span class="s0">&gt; </span><span class="s1">findBySearch</span><span class="s2">(</span><span class="s1">Map</span><span class="s0">&lt;</span><span class="s1">String</span><span class="s5">, </span><span class="s1">String</span><span class="s0">&gt; </span><span class="s1">map</span><span class="s2">) {</span>
+        <span class="s1">Integer cid </span><span class="s0">= null</span><span class="s2">;</span>
+        <span class="s1">Integer tid </span><span class="s0">= null</span><span class="s2">;</span>
+        <span class="s1">String  term </span><span class="s0">= null</span><span class="s2">;</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;term&quot;</span><span class="s2">)) {</span>
+            <span class="s1">term </span><span class="s0">= </span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;term&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;tid&quot;</span><span class="s2">)) {</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">tid </span><span class="s0">= </span><span class="s1">Integer</span><span class="s0">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;tid&quot;</span><span class="s2">));</span>
+            <span class="s2">}</span>
+            <span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s6">&quot;cid&quot;</span><span class="s2">)) {</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">cid </span><span class="s0">= </span><span class="s1">Integer</span><span class="s0">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">map</span><span class="s0">.</span><span class="s1">get</span><span class="s2">(</span><span class="s6">&quot;cid&quot;</span><span class="s2">));</span>
+            <span class="s2">}</span>
+            <span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s0">.</span><span class="s1">out</span><span class="s0">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;开课表查询：&quot; </span><span class="s0">+ </span><span class="s1">map</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">findBySearch</span><span class="s2">(</span><span class="s1">cid</span><span class="s5">, </span><span class="s1">tid</span><span class="s5">, </span><span class="s1">term</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<hr class="ls0">    <span class="s0">public boolean </span><span class="s1">deleteById</span><span class="s2">(</span><span class="s1">CourseTeacher courseTeacher</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">courseTeacherMapper</span><span class="s0">.</span><span class="s1">deleteById</span><span class="s2">(</span><span class="s1">courseTeacher</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
